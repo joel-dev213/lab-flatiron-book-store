@@ -45,3 +45,28 @@ const bookStore = {
 
 // Write your code here!
 
+// 2. Update existing element
+const bookStoreTitle = document.getElementById('header');
+bookStoreTitle.textContent = bookStore.name;
+
+// 3. Create new elements
+bookStore.books.forEach(book => {
+  const bookContainer = document.createElement('li');
+
+  const bookTitle = document.createElement('h3');
+  bookTitle.textContent = book.title;
+
+  const bookAuthor = document.createElement('p');
+  bookAuthor.textContent = book.author;
+
+  const bookImage = document.createElement('img');
+  bookImage.src = book.imageUrl;
+
+  const bookList = document.getElementById('book-list');
+
+  bookContainer.append(bookTitle, bookAuthor, bookImage);
+  bookList.append(bookContainer);
+});
+
+// 4. Bonus: delete element
+document.getElementById('delete-this').remove();
